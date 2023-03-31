@@ -2,18 +2,22 @@
 // ignore: file_names
 // ignore_for_file: file_names
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ecommercesystem/controller/OnBoardingController.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import '../../../core/constant/AppColor.dart';
 import '../../../core/constant/ScreenSize.dart';
 import '../../../data/datasource/static/Static.dart';
 
-class SliderBoard extends StatelessWidget {
+class SliderBoard extends GetView<OnBoardingControllerImp> {
   const SliderBoard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
+        onPageChanged: (index) {
+          controller.onChangeSlider(index);
+        },
         itemCount: onBoardingList.length,
         itemBuilder: (context, i) {
           return Column(

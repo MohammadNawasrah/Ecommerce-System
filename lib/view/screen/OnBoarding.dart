@@ -1,7 +1,9 @@
 // ignore: duplicate_ignore
 // ignore: file_names
 // ignore_for_file: file_names
+import 'package:ecommercesystem/controller/OnBoardingController.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../core/constant/AppColor.dart';
 import '../../core/constant/ScreenSize.dart';
 import '../widget/onBoarding.dart/ButtonNext.dart';
@@ -13,6 +15,7 @@ class OnBoarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(OnBoardingControllerImp());
     return Scaffold(
         backgroundColor: AppColor.white,
         body: SafeArea(
