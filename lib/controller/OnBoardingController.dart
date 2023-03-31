@@ -2,9 +2,10 @@
 // ignore: file_names
 // ignore_for_file: file_names
 
+import 'package:ecommercesystem/core/constant/AppRoute.dart';
 import 'package:ecommercesystem/data/datasource/static/Static.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get.dart';
 
 abstract class OnBoardingController extends GetxController {
   next();
@@ -16,11 +17,14 @@ class OnBoardingControllerImp extends OnBoardingController {
   int currntPage = 0;
   @override
   next() {
-    if (currntPage > onBoardingList.length - 2) {
+    currntPage++;
+    if (currntPage > onBoardingList.length - 1) {
+      Get.offAllNamed(AppRoute.Login);
     } else {
-      currntPage++;
-      pageController.animateToPage(currntPage,
-          duration: const Duration(milliseconds: 300), curve: Curves.linear);
+      if (pageController.hasClients) {
+        pageController.animateToPage(currntPage,
+            duration: const Duration(milliseconds: 300), curve: Curves.linear);
+      }
     }
     update();
   }
@@ -33,6 +37,7 @@ class OnBoardingControllerImp extends OnBoardingController {
 
   @override
   void onInit() {
+    currntPage = 0;
     pageController = PageController();
     super.onInit();
   }
