@@ -42,16 +42,7 @@ dependencies:
   # Animate
   show_up_animation: ^2.0.0
   auto_animated: ^3.0.1
-  # Google Map
-  flutter_polyline_points: ^1.0.0
-  google_maps_flutter: ^2.1.5
-  geolocator: ^8.0.5
-  geocoding: ^2.0.4
-  # Firebase And Notification
-  firebase_messaging: ^11.2.7
-  firebase_core: ^1.12.0
-  flutter_local_notifications: ^9.5.3+1
-  cloud_firestore: ^3.1.9
+
   # Local Data Cache
   sqflite: ^2.0.2
   shared_preferences: ^2.0.15
@@ -68,11 +59,7 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   fluttericon: ^2.0.0
   dartz: ^0.10.1
-  # Google Auth
-  google_sign_in: ^5.3.1
-  device_preview: ^0.7.5
-  responsive_builder: ^0.4.2
-  image_pickers: ^2.0.0+2
+
   auto_size_text: ^3.0.0
 
   # The following adds the Cupertino Icons font to your application.
@@ -116,12 +103,12 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Cairo
-      fonts:
-        - asset: asset/fonts/Cairo/Cairo-Regular.ttf
-        - asset: asset/fonts/Cairo/Cairo-Bold.ttf
-          weight: 700
+  # fonts:
+  #   - family: Cairo
+  #     fonts:
+  #       - asset: asset/fonts/Cairo/Cairo-Regular.ttf
+  #       - asset: asset/fonts/Cairo/Cairo-Bold.ttf
+  #         weight: 700
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

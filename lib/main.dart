@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Ecommerce System',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const OnBoarding(),
