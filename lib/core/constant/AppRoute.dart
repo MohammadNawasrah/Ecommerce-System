@@ -3,5 +3,6 @@
 // ignore_for_file: file_names
 class AppRoute {
   // ignore: constant_identifier_names
-  static const String Login = "login";
+  static const String login = "login";
+  static const String selectLanguage = "language";
 }

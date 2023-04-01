@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:ecommercesystem/data/model/OnBoardingModel.dart';
 
 import '../../../core/constant/ImageOnBoarding.dart';
