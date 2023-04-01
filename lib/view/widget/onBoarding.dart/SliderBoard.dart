@@ -15,6 +15,7 @@ class SliderBoard extends GetView<OnBoardingControllerImp> {
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
+        controller: controller.pageController,
         onPageChanged: (index) {
           controller.onChangeSlider(index);
         },
@@ -22,6 +23,7 @@ class SliderBoard extends GetView<OnBoardingControllerImp> {
         itemBuilder: (context, i) {
           return Column(
             children: [
+              //title----------------------------------
               AutoSizeText(onBoardingList[i].title!,
                   maxLines: 1,
                   style: const TextStyle(
@@ -34,6 +36,7 @@ class SliderBoard extends GetView<OnBoardingControllerImp> {
                 fit: BoxFit.fill,
               ),
               SizedBox(height: ScreenSize.heightScreen(context) / 20),
+              //body----------------------------------
               Container(
                 alignment: Alignment.center,
                 width: double.infinity,
