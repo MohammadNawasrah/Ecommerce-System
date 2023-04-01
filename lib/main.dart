@@ -1,10 +1,16 @@
+import 'package:ecommercesystem/controller/LocaleController.dart';
+import 'package:ecommercesystem/core/constant/AppRoute.dart';
+import 'package:ecommercesystem/core/service/Services.dart';
 import 'package:ecommercesystem/view/screen/OnBoarding.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get.dart';
 
 import 'Routes.dart';
+import 'core/localization/Translation.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initialServices();
   runApp(const MyApp());
 }
 
@@ -13,10 +19,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LocaleController localController = Get.put(LocaleController());
     return GetMaterialApp(
+      translations: MyTranslation(),
       debugShowCheckedModeBanner: false,
       title: 'Ecommerce System',
+      locale: localController.language,
       routes: routes,
+      initialRoute: AppRoute.selectLanguage,
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const OnBoarding(),
     );
