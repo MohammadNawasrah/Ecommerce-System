@@ -2,6 +2,7 @@
 // ignore_for_file: file_names, duplicate_ignore
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ecommercesystem/core/constant/AppRoute.dart';
 import 'package:ecommercesystem/core/constant/ScreenSize.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,11 +33,13 @@ class LanguageSelect extends StatelessWidget {
                 languageText: "2".tr,
                 onPressed: () {
                   localeController.changeLanguage("ar");
+                  Get.offAllNamed(AppRoute.onBoarding);
                 }),
             ButtonLanguage(
                 languageText: "3".tr,
                 onPressed: () {
                   localeController.changeLanguage("en");
+                  Get.offAllNamed(AppRoute.onBoarding);
                 }),
           ],
         ),

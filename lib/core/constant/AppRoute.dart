@@ -5,4 +5,5 @@ class AppRoute {
   // ignore: constant_identifier_names
   static const String login = "login";
   static const String selectLanguage = "language";
+  static const String onBoarding = "onBoarding";
 }
