@@ -2,6 +2,8 @@ import 'package:ecommercesystem/view/screen/OnBoarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
+import 'Routes.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,6 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Ecommerce System',
+      routes: routes,
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const OnBoarding(),
     );
