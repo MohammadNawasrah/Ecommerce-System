@@ -8,34 +8,45 @@ class MyTranslation extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "ar": {
+          //select language page
           "1": "اختر اللغة",
           "2": "عربي",
           "3": "انجليزي",
+          //login page
           "4": "تسجيل الدخول",
-          "5": "مرحبا بعودتك",
-          "6":
-              "قم بتسجيل الدخول باستخدام حساب و رقم سري خاص او اكمل باستخدام مواقع التواصل",
-          "7": "بريد إلكتروني",
-          "8": "ادخل بريد إلكتروني",
-          "9": "ادخل الرقم السري",
-          "10": "الرقم السري",
+          "6": "قم بتسجيل الدخول باستخدام حساب و رقم سري خاص",
           "11": "دخول",
           "12": "انشاء حساب جديد",
+          //signup page
+          "UserN": "اسم المستخدم",
+          "EnterUN": "ادخل اسم المستخدم",
+          "EnterAPassword": "ادخال الرقم السري مرة اخرى",
+          //LS page
+          "5": "مرحبا بعودتك",
+          "Email": "بريد إلكتروني",
+          "EnterE": "ادخل بريد إلكتروني",
+          "EnterP": "ادخل الرقم السري",
+          "Password": "الرقم السري",
         },
         "en": {
           "1": "Choose Language",
           "2": "Arabic",
           "3": "English",
+          //login page
           "4": "Sign In",
-          "5": "Welcome Back",
-          "6":
-              "Sign In With Your Email And\nPassword OR Continue With\nSocial Media ",
-          "7": "Email",
-          "8": "Enter Your Email",
-          "9": "Enter Your Password",
-          "10": "Password",
+          "6": "Sign In With Your Email And\nPassword ",
           "11": "Login",
           "12": "Create New Account",
+          //signup page
+          "UserN": "User Name",
+          "EnterUN": "Enter User Name",
+          "EnterAPassword": "Enter Password Agin",
+          ////LS page
+          "5": "Welcome Back",
+          "Email": "Email",
+          "EnterE": "Enter Your Email",
+          "EnterP": "Enter Your Password",
+          "Password": "Password",
         }
       };
 }
