@@ -64,7 +64,9 @@ class Signup extends StatelessWidget {
             SizedBox(height: ScreenSize.heightScreen(context) / 30),
             CustomButtonAuth(
                 buttonText: "12".tr,
-                onPress: () {},
+                onPress: () {
+                  signupControllerImpl.dispose();
+                },
                 buttonColor: const Color.fromARGB(255, 240, 120, 111)),
           ],
         ),
