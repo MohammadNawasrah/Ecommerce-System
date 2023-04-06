@@ -4,7 +4,6 @@
 import 'package:ecommercesystem/core/constant/AppRoute.dart';
 import 'package:ecommercesystem/view/screen/Language.dart';
 import 'package:ecommercesystem/view/screen/OnBoarding.dart';
-import 'package:ecommercesystem/view/screen/auth/CheckEmail.dart';
 import 'package:ecommercesystem/view/screen/auth/SignUp.dart';
 import 'package:ecommercesystem/view/screen/auth/SuccessSignup.dart';
 import 'package:ecommercesystem/view/screen/auth/login.dart';
@@ -25,6 +24,5 @@ Map<String, Widget Function(BuildContext)> routes = {
   AppRoute.resetPassword: (context) => const ResetPassword(),
   AppRoute.successResetPassword: (context) => const SuccessResetPassword(),
   AppRoute.successSignup: (context) => const SuccessSignup(),
-  AppRoute.checkEmail: (context) => const CheckEmail(),
   AppRoute.verfiyEmail: (context) => const VerfiyEmail(),
 };
