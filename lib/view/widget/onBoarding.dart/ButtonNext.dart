@@ -20,7 +20,7 @@ class ButtonNext extends GetView<OnBoardingControllerImp> {
             controller.next();
           },
           child: const AutoSizeText(
-            'Let\'s got',
+            'Let\'s go',
             maxLines: 1,
           )),
     );

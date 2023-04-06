@@ -2,6 +2,7 @@
 // ignore_for_file: file_names, duplicate_ignore
 
 import 'package:ecommercesystem/core/constant/AppRoute.dart';
+import 'package:ecommercesystem/core/middleware/MyMiddleWare.dart';
 import 'package:ecommercesystem/view/screen/Language.dart';
 import 'package:ecommercesystem/view/screen/OnBoarding.dart';
 import 'package:ecommercesystem/view/screen/auth/SignUp.dart';
@@ -15,8 +16,12 @@ import 'package:ecommercesystem/view/screen/forgetPassword/VerfiyCode.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 List<GetPage<dynamic>>? routes = [
-  GetPage(name: "/", page: () => const LanguageSelect()),
+  GetPage(
+      name: "/",
+      page: () => const LanguageSelect(),
+      middlewares: [MyMiddleWare()]),
   GetPage(name: AppRoute.login, page: () => const Login()),
+  GetPage(name: AppRoute.onBoarding, page: () => const OnBoarding()),
   GetPage(name: AppRoute.signup, page: () => const Signup()),
   GetPage(name: AppRoute.forgetPass, page: () => const ForgetPassword()),
   GetPage(name: AppRoute.verfiyCode, page: () => const VerfiyCode()),
@@ -27,17 +32,3 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.successSignup, page: () => const SuccessSignup()),
   GetPage(name: AppRoute.verfiyEmail, page: () => const VerfiyEmail()),
 ];
-
-
-// Map<String, Widget Function(BuildContext)> routes = {
-//   AppRoute.login: (context) => const Login(),
-//   AppRoute.selectLanguage: (context) => const LanguageSelect(),
-//   AppRoute.onBoarding: (context) => const OnBoarding(),
-//   AppRoute.signup: (context) => const Signup(),
-//   AppRoute.forgetPass: (context) => const ForgetPassword(),
-//   AppRoute.verfiyCode: (context) => const VerfiyCode(),
-//   AppRoute.resetPassword: (context) => const ResetPassword(),
-//   AppRoute.successResetPassword: (context) => const SuccessResetPassword(),
-//   AppRoute.successSignup: (context) => const SuccessSignup(),
-//   AppRoute.verfiyEmail: (context) => const VerfiyEmail(),
-// };
