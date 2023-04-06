@@ -13,5 +13,6 @@ class SuccessResetPasswordControllerImpl
   @override
   toLogin() {
     Get.offNamed(AppRoute.login);
+    Get.delete<SuccessResetPasswordControllerImpl>();
   }
 }

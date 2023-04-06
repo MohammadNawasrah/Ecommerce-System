@@ -35,6 +35,7 @@ class ForgetPasswordImpl extends ForgetPasswordController {
     var formData = formStateF.currentState;
     if (formData!.validate()) {
       Get.toNamed(AppRoute.verfiyCode);
+      Get.delete<ForgetPasswordImpl>();
     } else {}
   }
 }

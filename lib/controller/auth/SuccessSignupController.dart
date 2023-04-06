@@ -12,5 +12,6 @@ class SuccessSignupControllerImpl extends SuccessSignupController {
   @override
   toLogin() {
     Get.toNamed(AppRoute.login);
+    Get.delete<SuccessSignupControllerImpl>();
   }
 }

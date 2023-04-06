@@ -38,6 +38,7 @@ class SignupControllerImpl extends SignupController {
     var formData = formState.currentState;
     if (formData!.validate()) {
       Get.offNamed(AppRoute.verfiyEmail);
+      Get.delete<SignupControllerImpl>();
     } else {}
   }
 }
