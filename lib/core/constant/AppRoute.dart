@@ -6,4 +6,5 @@ class AppRoute {
   static const String login = "login";
   static const String selectLanguage = "language";
   static const String onBoarding = "onBoarding";
+  static const String signup = "signup";
 }
