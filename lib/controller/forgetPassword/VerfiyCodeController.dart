@@ -14,6 +14,11 @@ class VerfiyCodeControllerImpl extends VerfiyCodeController {
   late String? otpCode;
   @override
   checkOTP() {}
+  @override
+  void onInit() {
+    otpCode = "";
+    super.onInit();
+  }
 
   @override
   toResetPassword() {

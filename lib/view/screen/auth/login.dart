@@ -5,6 +5,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ecommercesystem/controller/auth/LoginController.dart';
 
 import 'package:ecommercesystem/core/constant/ScreenSize.dart';
+import 'package:ecommercesystem/core/function/ValidInput.dart';
 import 'package:ecommercesystem/view/widget/auth/CustomButtonAuth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,44 +38,55 @@ class Login extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Container(
         padding: const EdgeInsets.all(15),
-        child: ListView(
-          children: [
-            CustomLogoAuth(logoPath: AppImageAsset.logoLogin),
-            CustomTextTitleAuth(title: "5".tr),
-            Container(
-                margin: const EdgeInsets.symmetric(horizontal: 25),
-                child: CustomTextBodyAuth(title: "6".tr)),
-            SizedBox(height: ScreenSize.heightScreen(context) / 20),
-            CustomTextFormAuth(
-                textController: loginController.email,
-                hint: "EnterE".tr,
-                label: "Email".tr,
-                suffixIconT: const Icon(Icons.email_outlined)),
-            SizedBox(height: ScreenSize.heightScreen(context) / 30),
-            CustomTextFormAuth(
-                textController: loginController.password,
-                hint: "Password".tr,
-                label: "EnterP".tr,
-                suffixIconT: const Icon(Icons.lock_outline)),
-            SizedBox(height: ScreenSize.heightScreen(context) / 25),
-            CustomButtonForgetPass(onTap: () {
-              loginController.toForgetPass();
-            }),
-            SizedBox(height: ScreenSize.heightScreen(context) / 25),
-            // for login page
-            CustomButtonAuth(
-                buttonText: "11".tr,
-                onPress: () {},
-                buttonColor: AppColor.primary),
-            SizedBox(height: ScreenSize.heightScreen(context) / 30),
-            // for sginup page
-            CustomButtonAuth(
-                buttonText: "12".tr,
-                onPress: () {
-                  loginController.toSignup();
-                },
-                buttonColor: const Color.fromARGB(255, 240, 120, 111)),
-          ],
+        child: Form(
+          key: loginController.formState,
+          child: ListView(
+            children: [
+              CustomLogoAuth(logoPath: AppImageAsset.logoLogin),
+              CustomTextTitleAuth(title: "5".tr),
+              Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 25),
+                  child: CustomTextBodyAuth(title: "6".tr)),
+              SizedBox(height: ScreenSize.heightScreen(context) / 20),
+              CustomTextFormAuth(
+                  valid: (val) {
+                    return validInput(val!, 10, 100, "email");
+                  },
+                  textController: loginController.email,
+                  hint: "EnterE".tr,
+                  label: "Email".tr,
+                  suffixIconT: const Icon(Icons.email_outlined)),
+              SizedBox(height: ScreenSize.heightScreen(context) / 30),
+              CustomTextFormAuth(
+                  valid: (val) {
+                    return validInput(val!, 8, 30, "password");
+                  },
+                  textController: loginController.password,
+                  hint: "Password".tr,
+                  label: "EnterP".tr,
+                  suffixIconT: const Icon(Icons.lock_outline)),
+              SizedBox(height: ScreenSize.heightScreen(context) / 25),
+              CustomButtonForgetPass(onTap: () {
+                loginController.toForgetPass();
+              }),
+              SizedBox(height: ScreenSize.heightScreen(context) / 25),
+              // for login page
+              CustomButtonAuth(
+                  buttonText: "11".tr,
+                  onPress: () {
+                    loginController.login();
+                  },
+                  buttonColor: AppColor.primary),
+              SizedBox(height: ScreenSize.heightScreen(context) / 30),
+              // for sginup page
+              CustomButtonAuth(
+                  buttonText: "12".tr,
+                  onPress: () {
+                    loginController.toSignup();
+                  },
+                  buttonColor: const Color.fromARGB(255, 240, 120, 111)),
+            ],
+          ),
         ),
       ),
     );

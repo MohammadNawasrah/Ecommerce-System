@@ -7,6 +7,7 @@ import 'package:ecommercesystem/core/constant/ScreenSize.dart';
 import 'package:ecommercesystem/view/widget/auth/CustomButtonAuth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/function/ValidInput.dart';
 import '../../widget/auth/CustomTextBodyAuth.dart';
 import '../../widget/auth/CustomTextTitleAuth.dart';
 import '../../widget/auth/CutomTextFormAuth.dart';
@@ -32,28 +33,34 @@ class CheckEmail extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Container(
         padding: const EdgeInsets.all(15),
-        child: ListView(
-          children: [
-            CustomTextTitleAuth(title: "check".tr),
-            Container(
-                margin: const EdgeInsets.symmetric(horizontal: 25),
-                child: CustomTextBodyAuth(title: "6".tr)),
-            SizedBox(height: ScreenSize.heightScreen(context) / 25),
-            SizedBox(height: ScreenSize.heightScreen(context) / 25),
-            CustomTextFormAuth(
-                textController: checkEmailController.email,
-                hint: "EnterE".tr,
-                label: "Email".tr,
-                suffixIconT: const Icon(Icons.email_outlined)),
-            SizedBox(height: ScreenSize.heightScreen(context) / 25),
-            SizedBox(height: ScreenSize.heightScreen(context) / 30),
-            CustomButtonAuth(
-                buttonText: "checkE".tr,
-                onPress: () {
-                  checkEmailController.toVerifyEmail();
-                },
-                buttonColor: const Color.fromARGB(255, 240, 120, 111)),
-          ],
+        child: Form(
+          key: checkEmailController.formState,
+          child: ListView(
+            children: [
+              CustomTextTitleAuth(title: "check".tr),
+              Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 25),
+                  child: CustomTextBodyAuth(title: "6".tr)),
+              SizedBox(height: ScreenSize.heightScreen(context) / 25),
+              SizedBox(height: ScreenSize.heightScreen(context) / 25),
+              CustomTextFormAuth(
+                  valid: (val) {
+                    return validInput(val!, 10, 100, "email");
+                  },
+                  textController: checkEmailController.email,
+                  hint: "EnterE".tr,
+                  label: "Email".tr,
+                  suffixIconT: const Icon(Icons.email_outlined)),
+              SizedBox(height: ScreenSize.heightScreen(context) / 25),
+              SizedBox(height: ScreenSize.heightScreen(context) / 30),
+              CustomButtonAuth(
+                  buttonText: "checkE".tr,
+                  onPress: () {
+                    checkEmailController.toVerifyEmail();
+                  },
+                  buttonColor: const Color.fromARGB(255, 240, 120, 111)),
+            ],
+          ),
         ),
       ),
     );

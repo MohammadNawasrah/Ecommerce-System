@@ -9,17 +9,19 @@ class CustomTextFormAuth extends StatelessWidget {
   String label;
   Icon suffixIconT;
   TextEditingController? textController;
-
+  String? Function(String? valid)? valid;
   CustomTextFormAuth(
       {super.key,
       required this.hint,
       required this.label,
       required this.suffixIconT,
-      required this.textController});
+      required this.textController,
+      required this.valid});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: valid,
       style: const TextStyle(fontSize: 10),
       controller: textController,
       decoration: InputDecoration(
