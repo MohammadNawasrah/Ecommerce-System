@@ -60,14 +60,20 @@ class Login extends StatelessWidget {
                     label: "Email".tr,
                     suffixIconT: const Icon(Icons.email_outlined)),
                 SizedBox(height: ScreenSize.heightScreen(context) / 30),
-                CustomTextFormAuth(
-                    valid: (val) {
-                      return validInput(val!, 8, 30, "password");
-                    },
-                    textController: loginController.password,
-                    hint: "Password".tr,
-                    label: "EnterP".tr,
-                    suffixIconT: const Icon(Icons.lock_outline)),
+                GetBuilder<LoginControllerImpl>(builder: (controller) {
+                  return CustomTextFormAuth(
+                      onTapIcon: () {
+                        controller.showPasswordF();
+                      },
+                      isShow: controller.showPassword,
+                      valid: (val) {
+                        return validInput(val!, 8, 30, "password");
+                      },
+                      textController: loginController.password,
+                      hint: "Password".tr,
+                      label: "EnterP".tr,
+                      suffixIconT: const Icon(Icons.lock_outline));
+                }),
                 SizedBox(height: ScreenSize.heightScreen(context) / 25),
                 CustomButtonForgetPass(onTap: () {
                   loginController.toForgetPass();

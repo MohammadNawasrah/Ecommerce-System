@@ -60,23 +60,35 @@ class Signup extends StatelessWidget {
                   label: "Email".tr,
                   suffixIconT: const Icon(Icons.email_outlined)),
               SizedBox(height: ScreenSize.heightScreen(context) / 25),
-              CustomTextFormAuth(
-                  valid: (val) {
-                    return validInput(val!, 8, 80, "password");
-                  },
-                  textController: signupControllerImpl.password,
-                  hint: "EnterP".tr,
-                  label: "Password".tr,
-                  suffixIconT: const Icon(Icons.lock_outline)),
+              GetBuilder<SignupControllerImpl>(builder: (controller) {
+                return CustomTextFormAuth(
+                    onTapIcon: () {
+                      controller.showPasswordF();
+                    },
+                    isShow: controller.showPassword,
+                    valid: (val) {
+                      return validInput(val!, 8, 30, "password");
+                    },
+                    textController: signupControllerImpl.password,
+                    hint: "Password".tr,
+                    label: "EnterP".tr,
+                    suffixIconT: const Icon(Icons.lock_outline));
+              }),
               SizedBox(height: ScreenSize.heightScreen(context) / 30),
-              CustomTextFormAuth(
-                  valid: (val) {
-                    return validInput(val!, 8, 80, "password");
-                  },
-                  textController: signupControllerImpl.aginPassword,
-                  hint: "EnterAPassword".tr,
-                  label: "Password".tr,
-                  suffixIconT: const Icon(Icons.lock_outline)),
+              GetBuilder<SignupControllerImpl>(builder: (controller) {
+                return CustomTextFormAuth(
+                    onTapIcon: () {
+                      controller.showAginPasswordF();
+                    },
+                    isShow: controller.showAginPassword,
+                    valid: (val) {
+                      return validInput(val!, 8, 30, "password");
+                    },
+                    textController: signupControllerImpl.aginPassword,
+                    hint: "EnterApassword".tr,
+                    label: "EnterP".tr,
+                    suffixIconT: const Icon(Icons.lock_outline));
+              }),
               SizedBox(height: ScreenSize.heightScreen(context) / 30),
               CustomButtonAuth(
                   buttonText: "12".tr,

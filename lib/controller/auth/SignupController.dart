@@ -15,6 +15,8 @@ class SignupControllerImpl extends SignupController {
   late TextEditingController password;
   late TextEditingController aginPassword;
   late TextEditingController userName;
+  bool showPassword = true;
+  bool showAginPassword = true;
   @override
   void onInit() {
     email = TextEditingController();
@@ -22,6 +24,16 @@ class SignupControllerImpl extends SignupController {
     aginPassword = TextEditingController();
     userName = TextEditingController();
     super.onInit();
+  }
+
+  showPasswordF() {
+    showPassword = showPassword == true ? false : true;
+    update();
+  }
+
+  showAginPasswordF() {
+    showAginPassword = showAginPassword == true ? false : true;
+    update();
   }
 
   @override
