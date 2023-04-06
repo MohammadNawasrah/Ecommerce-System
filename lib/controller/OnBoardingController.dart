@@ -3,6 +3,7 @@
 // ignore_for_file: file_names
 
 import 'package:ecommercesystem/core/constant/AppRoute.dart';
+import 'package:ecommercesystem/core/service/Services.dart';
 import 'package:ecommercesystem/data/datasource/static/Static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,10 +16,12 @@ abstract class OnBoardingController extends GetxController {
 class OnBoardingControllerImp extends OnBoardingController {
   late PageController pageController;
   int currntPage = 0;
+  MyServices myServices = Get.find();
   @override
   next() {
     currntPage++;
     if (currntPage > onBoardingList.length - 1) {
+      myServices.sharedPreferences.setString("onboarding", "1");
       Get.offAllNamed(AppRoute.login);
     } else {
       if (pageController.hasClients) {
