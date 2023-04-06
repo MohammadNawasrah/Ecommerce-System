@@ -8,21 +8,23 @@ class CustomTextFormAuth extends StatelessWidget {
   String hint;
   String label;
   Icon suffixIconT;
-  TextEditingController? controller;
+  TextEditingController? textController;
 
-  CustomTextFormAuth({
-    super.key,
-    required this.hint,
-    required this.label,
-    required this.suffixIconT,
-  });
+  CustomTextFormAuth(
+      {super.key,
+      required this.hint,
+      required this.label,
+      required this.suffixIconT,
+      required this.textController});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
+      style: const TextStyle(fontSize: 10),
+      controller: textController,
       decoration: InputDecoration(
           hintText: hint,
+          hintStyle: const TextStyle(fontSize: 10),
           suffixIcon: suffixIconT,
           floatingLabelBehavior: FloatingLabelBehavior.always,
           label: Container(

@@ -21,7 +21,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginController loginController = Get.put(LoginControllerImpl());
+    LoginControllerImpl loginController = Get.put(LoginControllerImpl());
     return Scaffold(
       appBar: AppBar(
         title: AutoSizeText(
@@ -45,13 +45,15 @@ class Login extends StatelessWidget {
                 child: CustomTextBodyAuth(title: "6".tr)),
             SizedBox(height: ScreenSize.heightScreen(context) / 10),
             CustomTextFormAuth(
-                hint: "8".tr,
-                label: "7".tr,
+                textController: loginController.email,
+                hint: "EnterE".tr,
+                label: "Email".tr,
                 suffixIconT: const Icon(Icons.email_outlined)),
             SizedBox(height: ScreenSize.heightScreen(context) / 30),
             CustomTextFormAuth(
-                hint: "9".tr,
-                label: "10".tr,
+                textController: loginController.password,
+                hint: "Password".tr,
+                label: "EnterP".tr,
                 suffixIconT: const Icon(Icons.lock_outline)),
             SizedBox(height: ScreenSize.heightScreen(context) / 30),
             CustomButtonAuth(
