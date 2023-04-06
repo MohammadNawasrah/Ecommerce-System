@@ -12,17 +12,32 @@ import 'package:ecommercesystem/view/screen/forgetPassword/ForgetPassword.dart';
 import 'package:ecommercesystem/view/screen/forgetPassword/ResetPassword.dart';
 import 'package:ecommercesystem/view/screen/forgetPassword/SuccessResetPassword.dart';
 import 'package:ecommercesystem/view/screen/forgetPassword/VerfiyCode.dart';
-import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/routes/get_route.dart';
 
-Map<String, Widget Function(BuildContext)> routes = {
-  AppRoute.login: (context) => const Login(),
-  AppRoute.selectLanguage: (context) => const LanguageSelect(),
-  AppRoute.onBoarding: (context) => const OnBoarding(),
-  AppRoute.signup: (context) => const Signup(),
-  AppRoute.forgetPass: (context) => const ForgetPassword(),
-  AppRoute.verfiyCode: (context) => const VerfiyCode(),
-  AppRoute.resetPassword: (context) => const ResetPassword(),
-  AppRoute.successResetPassword: (context) => const SuccessResetPassword(),
-  AppRoute.successSignup: (context) => const SuccessSignup(),
-  AppRoute.verfiyEmail: (context) => const VerfiyEmail(),
-};
+List<GetPage<dynamic>>? routes = [
+  GetPage(name: "/", page: () => const LanguageSelect()),
+  GetPage(name: AppRoute.login, page: () => const Login()),
+  GetPage(name: AppRoute.signup, page: () => const Signup()),
+  GetPage(name: AppRoute.forgetPass, page: () => const ForgetPassword()),
+  GetPage(name: AppRoute.verfiyCode, page: () => const VerfiyCode()),
+  GetPage(name: AppRoute.resetPassword, page: () => const ResetPassword()),
+  GetPage(
+      name: AppRoute.successResetPassword,
+      page: () => const SuccessResetPassword()),
+  GetPage(name: AppRoute.successSignup, page: () => const SuccessSignup()),
+  GetPage(name: AppRoute.verfiyEmail, page: () => const VerfiyEmail()),
+];
+
+
+// Map<String, Widget Function(BuildContext)> routes = {
+//   AppRoute.login: (context) => const Login(),
+//   AppRoute.selectLanguage: (context) => const LanguageSelect(),
+//   AppRoute.onBoarding: (context) => const OnBoarding(),
+//   AppRoute.signup: (context) => const Signup(),
+//   AppRoute.forgetPass: (context) => const ForgetPassword(),
+//   AppRoute.verfiyCode: (context) => const VerfiyCode(),
+//   AppRoute.resetPassword: (context) => const ResetPassword(),
+//   AppRoute.successResetPassword: (context) => const SuccessResetPassword(),
+//   AppRoute.successSignup: (context) => const SuccessSignup(),
+//   AppRoute.verfiyEmail: (context) => const VerfiyEmail(),
+// };
