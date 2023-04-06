@@ -33,13 +33,13 @@ class LanguageSelect extends StatelessWidget {
                 languageText: "2".tr,
                 onPressed: () {
                   localeController.changeLanguage("ar");
-                  Get.offAllNamed(AppRoute.onBoarding);
+                  Get.offNamed(AppRoute.onBoarding);
                 }),
             ButtonLanguage(
                 languageText: "3".tr,
                 onPressed: () {
                   localeController.changeLanguage("en");
-                  Get.offAllNamed(AppRoute.onBoarding);
+                  Get.offNamed(AppRoute.onBoarding);
                 }),
           ],
         ),

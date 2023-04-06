@@ -25,6 +25,7 @@ class OnBoardingControllerImp extends OnBoardingController {
       Get.offAllNamed(AppRoute.login);
     } else {
       if (pageController.hasClients) {
+        // print(++currntPage);
         pageController.animateToPage(currntPage,
             duration: const Duration(milliseconds: 300), curve: Curves.linear);
       }
@@ -41,7 +42,7 @@ class OnBoardingControllerImp extends OnBoardingController {
   @override
   void onInit() {
     currntPage = 0;
-    pageController = PageController();
+    pageController = PageController(initialPage: 0);
     super.onInit();
   }
 }
