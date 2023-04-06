@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 abstract class LoginController extends GetxController {
   login();
   toSignup();
+  toForgetPass();
 }
 
 class LoginControllerImpl extends LoginController {
@@ -26,5 +27,10 @@ class LoginControllerImpl extends LoginController {
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();
+  }
+
+  @override
+  toForgetPass() {
+    Get.toNamed(AppRoute.forgetPass);
   }
 }

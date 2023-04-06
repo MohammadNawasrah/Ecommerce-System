@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class SignupController extends GetxController {
-  login();
-  toSignup();
+  toCheckEmail();
 }
 
 class SignupControllerImpl extends SignupController {
@@ -16,19 +15,25 @@ class SignupControllerImpl extends SignupController {
   late TextEditingController aginPassword;
   late TextEditingController userName;
   @override
-  login() {}
-
-  @override
-  toSignup() {
-    Get.toNamed(AppRoute.signup);
-  }
-
-  @override
   void onInit() {
     email = TextEditingController();
     password = TextEditingController();
     aginPassword = TextEditingController();
     userName = TextEditingController();
     super.onInit();
+  }
+
+  @override
+  void dispose() {
+    email.dispose();
+    password.dispose();
+    aginPassword.dispose();
+    userName.dispose();
+    super.dispose();
+  }
+
+  @override
+  toCheckEmail() {
+    Get.offNamed(AppRoute.checkEmail);
   }
 }
