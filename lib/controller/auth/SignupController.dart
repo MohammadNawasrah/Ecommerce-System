@@ -1,10 +1,13 @@
 // ignore: duplicate_ignore
 // ignore: file_names
 // ignore_for_file: file_names
+import 'package:ecommercesystem/core/constant/AppRoute.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class SignupController extends GetxController {}
+abstract class SignupController extends GetxController {
+  toCheckEmail();
+}
 
 class SignupControllerImpl extends SignupController {
   late TextEditingController email;
@@ -27,5 +30,10 @@ class SignupControllerImpl extends SignupController {
     aginPassword.dispose();
     userName.dispose();
     super.dispose();
+  }
+
+  @override
+  toCheckEmail() {
+    Get.offNamed(AppRoute.checkEmail);
   }
 }
