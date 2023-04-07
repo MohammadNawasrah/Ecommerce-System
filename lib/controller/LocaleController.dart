@@ -11,7 +11,7 @@ class LocaleController extends GetxController {
 
   changeLanguage(String languageCode) {
     Locale locale = Locale(languageCode);
-    myServices.sharedPreferences.setString("languge", languageCode);
+    myServices.sharedPreferences.setString("language", languageCode);
     Get.updateLocale(locale);
   }
 
@@ -22,7 +22,7 @@ class LocaleController extends GetxController {
     if (sharedPreferencesLanguage == "ar") {
       language = const Locale("ar");
     } else if (sharedPreferencesLanguage == "en") {
-      language = const Locale("er");
+      language = const Locale("en");
     } else {
       language = Locale(Get.deviceLocale!.languageCode);
     }
