@@ -25,8 +25,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Ecommerce System',
       locale: localController.language,
+
+      // routes: rou,
+      getPages: routes,
+      initialRoute: AppRoute.login,
+
       routes: routes,
-      initialRoute: AppRoute.selectLanguage,
+
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const OnBoarding(),
     );
