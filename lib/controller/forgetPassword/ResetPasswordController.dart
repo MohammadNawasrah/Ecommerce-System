@@ -36,6 +36,7 @@ class ResetPasswordControllerImpl extends ResetPasswordController {
     var formData = formState.currentState;
     if (formData!.validate()) {
       Get.offNamed(AppRoute.successResetPassword);
+      Get.delete<ResetPasswordControllerImpl>();
     } else {}
   }
 }

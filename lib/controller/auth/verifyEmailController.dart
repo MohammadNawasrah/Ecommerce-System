@@ -24,6 +24,7 @@ class VerfiyEmailControllerImpl extends VerfiyEmailController {
   toSuccessSignUp() {
     if (otpCode == "12345") {
       Get.toNamed(AppRoute.successSignup);
+      Get.delete<VerfiyEmailControllerImpl>();
     }
   }
 }

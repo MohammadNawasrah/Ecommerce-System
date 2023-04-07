@@ -24,6 +24,7 @@ class VerfiyCodeControllerImpl extends VerfiyCodeController {
   toResetPassword() {
     if (otpCode == "12345") {
       Get.toNamed(AppRoute.resetPassword);
+      Get.delete<VerfiyCodeControllerImpl>();
     }
   }
 }
