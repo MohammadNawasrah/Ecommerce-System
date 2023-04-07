@@ -47,6 +47,13 @@ class MyTranslation extends Translations {
           //SuccessPass
           "successPass": "تم اعادة تعين الرقم السري بنجاح",
           "toLogin": "الى تسجيل الدخول",
+          //validInput
+          "NotUername": "اسم مستخدم غير صالح",
+          "NotEmail": "بريد الكتروني غير صالح",
+          "NotPhone": "رقم هاتف غير صالح",
+          "minText": "يجب ان يكون عدد الاحرف اكبر من",
+          "maxText": "يجب ان لا يكون عدد الاحرف اكبر من",
+          "empty": "يجب الا تكون فارغة",
         },
         "en": {
           "1": "Choose Language",
@@ -85,7 +92,14 @@ class MyTranslation extends Translations {
           "checkEmail": "Check Email",
           //SuccessPass
           "successPass": "Success Reset Password",
-          "toLogin": "الى تسجيل الدخول",
+          "toLogin": "Go To Login",
+          //validInput
+          "NotUername": "Not valid Username",
+          "NotEmail": "Not valid Email",
+          "NotPhone": "Not valid Phone Number",
+          "minText": "Can't be less than",
+          "maxText": "Can't be larger than",
+          "empty": "Can't be empty",
         }
       };
 }

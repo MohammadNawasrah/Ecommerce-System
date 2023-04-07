@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 
 import '../../../../core/constant/ScreenSize.dart';
 
+import '../../../core/function/ValidInput.dart';
 import '../../widget/auth/CustomButtonAuth.dart';
 
 import '../../widget/auth/CustomTextTitleAuth.dart';
@@ -34,29 +35,38 @@ class ResetPassword extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Container(
         padding: const EdgeInsets.all(15),
-        child: ListView(
-          children: [
-            CustomTextTitleAuth(title: "PasswordTitle".tr),
-            SizedBox(height: ScreenSize.heightScreen(context) / 25),
-            CustomTextFormAuth(
-                textController: resetPasswordControllerImpl.password,
-                hint: "EnterP".tr,
-                label: "Password".tr,
-                suffixIconT: const Icon(Icons.lock_outline_rounded)),
-            SizedBox(height: ScreenSize.heightScreen(context) / 25),
-            CustomTextFormAuth(
-                textController: resetPasswordControllerImpl.password,
-                hint: "EnterAPassword".tr,
-                label: "Password".tr,
-                suffixIconT: const Icon(Icons.lock_outline_rounded)),
-            SizedBox(height: ScreenSize.heightScreen(context) / 30),
-            CustomButtonAuth(
-                buttonText: "save".tr,
-                onPress: () {
-                  resetPasswordControllerImpl.toSuccessResetPassword();
-                },
-                buttonColor: const Color.fromARGB(255, 240, 120, 111)),
-          ],
+        child: Form(
+          key: resetPasswordControllerImpl.formState,
+          child: ListView(
+            children: [
+              CustomTextTitleAuth(title: "PasswordTitle".tr),
+              SizedBox(height: ScreenSize.heightScreen(context) / 25),
+              CustomTextFormAuth(
+                  valid: (val) {
+                    return validInput(val!, 10, 100, "password");
+                  },
+                  textController: resetPasswordControllerImpl.password,
+                  hint: "EnterP".tr,
+                  label: "Password".tr,
+                  suffixIconT: const Icon(Icons.lock_outline_rounded)),
+              SizedBox(height: ScreenSize.heightScreen(context) / 25),
+              CustomTextFormAuth(
+                  valid: (val) {
+                    return validInput(val!, 10, 100, "password");
+                  },
+                  textController: resetPasswordControllerImpl.password,
+                  hint: "EnterAPassword".tr,
+                  label: "Password".tr,
+                  suffixIconT: const Icon(Icons.lock_outline_rounded)),
+              SizedBox(height: ScreenSize.heightScreen(context) / 30),
+              CustomButtonAuth(
+                  buttonText: "save".tr,
+                  onPress: () {
+                    resetPasswordControllerImpl.toSuccessResetPassword();
+                  },
+                  buttonColor: const Color.fromARGB(255, 240, 120, 111)),
+            ],
+          ),
         ),
       ),
     );

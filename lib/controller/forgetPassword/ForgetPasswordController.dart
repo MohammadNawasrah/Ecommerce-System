@@ -11,6 +11,7 @@ abstract class ForgetPasswordController extends GetxController {
 }
 
 class ForgetPasswordImpl extends ForgetPasswordController {
+  GlobalKey<FormState> formStateF = GlobalKey<FormState>();
   late TextEditingController email;
   @override
   void onInit() {
@@ -31,6 +32,9 @@ class ForgetPasswordImpl extends ForgetPasswordController {
 
   @override
   toVerfiyCode() {
-    Get.toNamed(AppRoute.verfiyCode);
+    var formData = formStateF.currentState;
+    if (formData!.validate()) {
+      Get.toNamed(AppRoute.verfiyCode);
+    } else {}
   }
 }

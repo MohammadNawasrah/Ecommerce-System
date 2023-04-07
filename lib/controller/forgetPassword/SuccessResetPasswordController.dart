@@ -12,6 +12,6 @@ class SuccessResetPasswordControllerImpl
     extends SuccessResetPasswordController {
   @override
   toLogin() {
-    Get.toNamed(AppRoute.login);
+    Get.offNamed(AppRoute.login);
   }
 }

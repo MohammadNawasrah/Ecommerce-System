@@ -12,6 +12,7 @@ abstract class CheckEmailController extends GetxController {
 }
 
 class CheckEmailControllerImpl extends CheckEmailController {
+  GlobalKey<FormState> formState = GlobalKey<FormState>();
   late TextEditingController email;
   @override
   void onInit() {
@@ -32,6 +33,9 @@ class CheckEmailControllerImpl extends CheckEmailController {
 
   @override
   toVerifyEmail() {
-    Get.toNamed(AppRoute.verfiyEmail);
+    var formData = formState.currentState;
+    if (formData!.validate()) {
+      Get.toNamed(AppRoute.verfiyEmail);
+    } else {}
   }
 }
