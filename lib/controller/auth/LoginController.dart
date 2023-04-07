@@ -22,10 +22,7 @@ class LoginControllerImpl extends LoginController {
   login() {
     var formData = formState.currentState;
     if (formData!.validate()) {
-      print("valid");
-    } else {
-      print("notvalid");
-    }
+    } else {}
   }
 
   @override
