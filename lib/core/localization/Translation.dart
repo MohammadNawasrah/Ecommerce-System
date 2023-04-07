@@ -54,6 +54,11 @@ class MyTranslation extends Translations {
           "minText": "يجب ان يكون عدد الاحرف اكبر من",
           "maxText": "يجب ان لا يكون عدد الاحرف اكبر من",
           "empty": "يجب الا تكون فارغة",
+          //exitForm app
+          "alirt": "!انتبه",
+          "body": "عند الضغط على تاكيد سيتم اغلاق البرنامج",
+          "cancel": "اغلاق",
+          "confirm": "تأكيد",
         },
         "en": {
           "1": "Choose Language",
@@ -100,6 +105,10 @@ class MyTranslation extends Translations {
           "minText": "Can't be less than",
           "maxText": "Can't be larger than",
           "empty": "Can't be empty",
+          "alirt": "notice!",
+          "body": "Whene click ok will exit from app",
+          "cancel": "cancel",
+          "confirm": "ok",
         }
       };
 }

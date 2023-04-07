@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 
 import '../../../core/constant/AppColor.dart';
 import '../../../core/constant/AppImageAsset.dart';
+import '../../../core/function/AlertExitApp.dart';
 import '../../widget/auth/CustomButtonForgetPass.dart';
 import '../../widget/auth/CustomLogoAuth.dart';
 import '../../widget/auth/CustomTextBodyAuth.dart';
@@ -36,56 +37,59 @@ class Login extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       backgroundColor: Colors.white,
-      body: Container(
-        padding: const EdgeInsets.all(15),
-        child: Form(
-          key: loginController.formState,
-          child: ListView(
-            children: [
-              CustomLogoAuth(logoPath: AppImageAsset.logoLogin),
-              CustomTextTitleAuth(title: "5".tr),
-              Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 25),
-                  child: CustomTextBodyAuth(title: "6".tr)),
-              SizedBox(height: ScreenSize.heightScreen(context) / 20),
-              CustomTextFormAuth(
-                  valid: (val) {
-                    return validInput(val!, 10, 100, "email");
-                  },
-                  textController: loginController.email,
-                  hint: "EnterE".tr,
-                  label: "Email".tr,
-                  suffixIconT: const Icon(Icons.email_outlined)),
-              SizedBox(height: ScreenSize.heightScreen(context) / 30),
-              CustomTextFormAuth(
-                  valid: (val) {
-                    return validInput(val!, 8, 30, "password");
-                  },
-                  textController: loginController.password,
-                  hint: "Password".tr,
-                  label: "EnterP".tr,
-                  suffixIconT: const Icon(Icons.lock_outline)),
-              SizedBox(height: ScreenSize.heightScreen(context) / 25),
-              CustomButtonForgetPass(onTap: () {
-                loginController.toForgetPass();
-              }),
-              SizedBox(height: ScreenSize.heightScreen(context) / 25),
-              // for login page
-              CustomButtonAuth(
-                  buttonText: "11".tr,
-                  onPress: () {
-                    loginController.login();
-                  },
-                  buttonColor: AppColor.primary),
-              SizedBox(height: ScreenSize.heightScreen(context) / 30),
-              // for sginup page
-              CustomButtonAuth(
-                  buttonText: "12".tr,
-                  onPress: () {
-                    loginController.toSignup();
-                  },
-                  buttonColor: const Color.fromARGB(255, 240, 120, 111)),
-            ],
+      body: WillPopScope(
+        onWillPop: alertExitApp,
+        child: Container(
+          padding: const EdgeInsets.all(15),
+          child: Form(
+            key: loginController.formState,
+            child: ListView(
+              children: [
+                CustomLogoAuth(logoPath: AppImageAsset.logoLogin),
+                CustomTextTitleAuth(title: "5".tr),
+                Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 25),
+                    child: CustomTextBodyAuth(title: "6".tr)),
+                SizedBox(height: ScreenSize.heightScreen(context) / 20),
+                CustomTextFormAuth(
+                    valid: (val) {
+                      return validInput(val!, 10, 100, "email");
+                    },
+                    textController: loginController.email,
+                    hint: "EnterE".tr,
+                    label: "Email".tr,
+                    suffixIconT: const Icon(Icons.email_outlined)),
+                SizedBox(height: ScreenSize.heightScreen(context) / 30),
+                CustomTextFormAuth(
+                    valid: (val) {
+                      return validInput(val!, 8, 30, "password");
+                    },
+                    textController: loginController.password,
+                    hint: "Password".tr,
+                    label: "EnterP".tr,
+                    suffixIconT: const Icon(Icons.lock_outline)),
+                SizedBox(height: ScreenSize.heightScreen(context) / 25),
+                CustomButtonForgetPass(onTap: () {
+                  loginController.toForgetPass();
+                }),
+                SizedBox(height: ScreenSize.heightScreen(context) / 25),
+                // for login page
+                CustomButtonAuth(
+                    buttonText: "11".tr,
+                    onPress: () {
+                      loginController.login();
+                    },
+                    buttonColor: AppColor.primary),
+                SizedBox(height: ScreenSize.heightScreen(context) / 30),
+                // for sginup page
+                CustomButtonAuth(
+                    buttonText: "12".tr,
+                    onPress: () {
+                      loginController.toSignup();
+                    },
+                    buttonColor: const Color.fromARGB(255, 240, 120, 111)),
+              ],
+            ),
           ),
         ),
       ),
