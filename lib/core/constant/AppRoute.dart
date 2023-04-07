@@ -10,7 +10,6 @@ class AppRoute {
   static const String forgetPass = "forgetPass";
   static const String verfiyCode = "verfiyCode";
   static const String resetPassword = "resetPassword";
-  static const String checkEmail = "checkEmail";
   static const String successSignup = "successSignup";
   static const String successResetPassword = "successResetPassword";
   static const String verfiyEmail = "VerfiyEmail";
