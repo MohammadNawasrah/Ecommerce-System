@@ -41,23 +41,35 @@ class ResetPassword extends StatelessWidget {
             children: [
               CustomTextTitleAuth(title: "PasswordTitle".tr),
               SizedBox(height: ScreenSize.heightScreen(context) / 25),
-              CustomTextFormAuth(
-                  valid: (val) {
-                    return validInput(val!, 10, 100, "password");
-                  },
-                  textController: resetPasswordControllerImpl.password,
-                  hint: "EnterP".tr,
-                  label: "Password".tr,
-                  suffixIconT: const Icon(Icons.lock_outline_rounded)),
+              GetBuilder<ResetPasswordControllerImpl>(builder: (controller) {
+                return CustomTextFormAuth(
+                    onTapIcon: () {
+                      controller.showPasswordF();
+                    },
+                    isShow: controller.showPassword,
+                    valid: (val) {
+                      return validInput(val!, 8, 30, "password");
+                    },
+                    textController: resetPasswordControllerImpl.password,
+                    hint: "Password".tr,
+                    label: "EnterP".tr,
+                    suffixIconT: const Icon(Icons.lock_outline));
+              }),
               SizedBox(height: ScreenSize.heightScreen(context) / 25),
-              CustomTextFormAuth(
-                  valid: (val) {
-                    return validInput(val!, 10, 100, "password");
-                  },
-                  textController: resetPasswordControllerImpl.password,
-                  hint: "EnterAPassword".tr,
-                  label: "Password".tr,
-                  suffixIconT: const Icon(Icons.lock_outline_rounded)),
+              GetBuilder<ResetPasswordControllerImpl>(builder: (controller) {
+                return CustomTextFormAuth(
+                    onTapIcon: () {
+                      controller.showAginPasswordF();
+                    },
+                    isShow: controller.showAginPassword,
+                    valid: (val) {
+                      return validInput(val!, 8, 30, "password");
+                    },
+                    textController: resetPasswordControllerImpl.rePassword,
+                    hint: "EnterApassword".tr,
+                    label: "EnterP".tr,
+                    suffixIconT: const Icon(Icons.lock_outline));
+              }),
               SizedBox(height: ScreenSize.heightScreen(context) / 30),
               CustomButtonAuth(
                   buttonText: "save".tr,

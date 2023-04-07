@@ -9,12 +9,15 @@ abstract class LoginController extends GetxController {
   login();
   toSignup();
   toForgetPass();
+  showPasswordF();
 }
 
 class LoginControllerImpl extends LoginController {
+  bool showPassword = true;
   GlobalKey<FormState> formState = GlobalKey();
   late TextEditingController email;
   late TextEditingController password;
+
   @override
   login() {
     var formData = formState.currentState;
@@ -49,5 +52,11 @@ class LoginControllerImpl extends LoginController {
   toForgetPass() {
     Get.offNamed(AppRoute.forgetPass);
     Get.delete<LoginControllerImpl>();
+  }
+
+  @override
+  showPasswordF() {
+    showPassword = showPassword == true ? false : true;
+    update();
   }
 }

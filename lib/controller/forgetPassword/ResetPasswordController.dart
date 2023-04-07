@@ -15,6 +15,8 @@ class ResetPasswordControllerImpl extends ResetPasswordController {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
   late TextEditingController password;
   late TextEditingController rePassword;
+  bool showPassword = true;
+  bool showAginPassword = true;
   @override
   checkTwoPass() {}
   @override
@@ -22,6 +24,16 @@ class ResetPasswordControllerImpl extends ResetPasswordController {
     password.dispose();
     rePassword.dispose();
     super.dispose();
+  }
+
+  showPasswordF() {
+    showPassword = showPassword == true ? false : true;
+    update();
+  }
+
+  showAginPasswordF() {
+    showAginPassword = showAginPassword == true ? false : true;
+    update();
   }
 
   @override
